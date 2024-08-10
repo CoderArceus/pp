@@ -18,7 +18,10 @@ class MessageManipulation(commands.Cog):
     @commands.Cog.listener()
     async def on_message_delete(self, message):
         member=message.author
-        await message.channel.send(f'{member.mention} fuk u hidin bih?')
+        if message.author.bot:
+        	return
+        else:
+        	await message.channel.send(f'{member.mention} fuk u hidin bih?')
         
 async def setup(bot):
    await bot.add_cog(MessageManipulation(bot))
