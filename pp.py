@@ -24,6 +24,13 @@ async def load():
         if filename.endswith(".py"):
             await bot.load_extension(f'cogs.{filename[:-3]}')
 
+@bot.command()
+async def reload(ctx):
+    for filename in os.listdir("./cogs"):
+        if filename.endswith(".py"):
+            await bot.reload_extension(f'cogs.{filename[:-3]}')
+            await ctx.send(f'Reloaded {filename} Successfully.')
+            print(f'Reloaded {filename} Successfully.')
 
 async def main():
     async with bot:
