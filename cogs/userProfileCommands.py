@@ -16,9 +16,11 @@ class userProfileCommands(commands.Cog):
         if member==None:
             print('2')
             embedAvatarSelf = discord.Embed(title=f'{ctx.message.author}')
-            userAvatar=ctx.message.author.avatar_url
-            embedAvatarSelf.set_image(userAvatar)
             print('3')
+            userAvatar=ctx.message.author.avatar_url
+            print('4')
+            embedAvatarSelf.set_image(userAvatar)
+            print('5')
             await ctx.reply(embed=embedAvatarSelf)
         else:
             embedAvatarOther = discord.Embed(title=f'{member}')
