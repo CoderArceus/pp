@@ -10,11 +10,12 @@ class userProfileCommands(commands.Cog):
     async def on_ready(self):
         print(f'{__name__} is online!')
 		
-    @commands.command(alias='av')
+    @commands.command()
     async def avatar(self, ctx, member: discord.Member=None):
         if member==None:
-            embedAvatarSelf = discord.Embed(title={ctx.message.author}, color=random.randint(-1, 37))
-            embedAvatarSelf.set_image(ctx.message.author.avatar_url)
+            embedAvatarSelf = discord.Embed(title={ctx.message.author})
+            userAvatar=ctx.message.author.avatar_url
+            embedAvatarSelf.set_image(userAvatar)
             await ctx.reply(embed=embedAvatarSelf)
         else:
             embedAvatarOther = discord.Embed(title={member}, color=random.randint(-1, 37))
