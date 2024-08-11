@@ -22,9 +22,12 @@ class ChatCommands(commands.Cog):
     	else:
         	await ctx.send(f'when girls call {member.mention} smooth, they probably mean their brain')
     @commands.command()
-    async def howlong(self, ctx):
+    async def howlong(self, ctx, member: discord.Member=None):
         ppsize=random.randint(-3, 11)
-        await ctx.reply(f"{user.mention}'s dingus is {ppsize} inches... *oh my*..")    	
+        if member==None:
+            await ctx.reply(f"{ctx.message.author.mention}'s dingus is {ppsize} inches... *oh my*..")
+        else:
+            await ctx.reply(f"{member.mention}'s dingus is {ppsize} inches... *oh my*..")
 
 async def setup(bot):
    await bot.add_cog(ChatCommands(bot))
