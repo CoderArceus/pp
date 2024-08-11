@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import random
-from ..Functions import randomColor
+from .Functions import randomColor
 
 class userProfileCommands(commands.Cog):
     def __init__(self, bot):
