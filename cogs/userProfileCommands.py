@@ -14,7 +14,7 @@ class userProfileCommands(commands.Cog):
     @commands.command(aliases=['av'])
     async def avatar(self, ctx, member: discord.Member=None):
         if member==None:
-            embedAvatarSelf = discord.Embed(title=ctx.message.author, color=randomColor(randColor))
+            embedAvatarSelf = discord.Embed(title=ctx.message.author, color=randomColor.randColor)
             userAvatar=ctx.message.author.avatar.url
             embedAvatarSelf.set_image(url=userAvatar)
             await ctx.reply(embed=embedAvatarSelf)
@@ -23,6 +23,6 @@ class userProfileCommands(commands.Cog):
             userAvatar=member.avatar.url
             embedAvatarOther.set_image(url=userAvatar)
             await ctx.reply(embed=embedAvatarOther)
-		
+            
 async def setup(bot):
    await bot.add_cog(userProfileCommands(bot))
