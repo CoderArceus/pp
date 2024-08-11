@@ -26,7 +26,7 @@ extensions = [
 if __name__ == "__main__":
     for extension in extensions:
         try:
-            bot.load_extension(extension)
+            await bot.load_extension(extension)
         except Exception as e:
             print(f"Error loading the {extension}", file=sys.stderr)
             traceback.print_exc()
