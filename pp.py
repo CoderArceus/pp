@@ -48,6 +48,5 @@ async def reload(ctx):
 
 async def main():
     async with bot:
-        await load()
         await bot.start(token)
 asyncio.run(main())
