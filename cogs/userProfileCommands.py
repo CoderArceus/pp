@@ -14,7 +14,8 @@ class userProfileCommands(commands.Cog):
     @commands.command(aliases=['av'])
     async def avatar(self, ctx, member: discord.Member=None):
         if member==None:
-            embedAvatarSelf = discord.Embed(title=ctx.message.author, color=randomColor())
+            print(randomColor())
+            embedAvatarSelf = discord.Embed(title=ctx.message.author)
             userAvatar=ctx.message.author.avatar.url
             embedAvatarSelf.set_image(url=userAvatar)
             await ctx.reply(embed=embedAvatarSelf)
