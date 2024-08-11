@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import os
 import asyncio
-from Functions.py import randomColor
+from Functions import randomColor
 
 intents = discord.Intents.default()
 intents.message_content = True
