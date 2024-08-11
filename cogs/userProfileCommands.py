@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import random
+from .Functions import randomColor
 
 class userProfileCommands(commands.Cog):
     def __init__(self, bot):
@@ -13,7 +14,7 @@ class userProfileCommands(commands.Cog):
     @commands.command(aliases=['av'])
     async def avatar(self, ctx, member: discord.Member=None):
         if member==None:
-            embedAvatarSelf = discord.Embed(title=ctx.message.author, color=randColor)
+            embedAvatarSelf = discord.Embed(title=ctx.message.author, color=randColor())
             userAvatar=ctx.message.author.avatar.url
             embedAvatarSelf.set_image(url=userAvatar)
             await ctx.reply(embed=embedAvatarSelf)
