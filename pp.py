@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import os
 import asyncio
+import sys
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -19,10 +20,16 @@ with open("token.txt") as file:
 
 #loading modules and starting bot
 
-async def load():
-    for filename in os.listdir("./cogs"):
-        if filename.endswith(".py"):
-            await bot.load_extension(f'cogs.{filename[:-3]}')
+extensions = [
+    'cogs.mod_commands',
+]
+if __name__ == "__main__":
+    for extension in extensions:
+        try:
+            bot.load_extension(extension)
+        except Exception as e:
+            print(f"Error loading the {extension}", file=sys.stderr)
+            traceback.print_exc()
 
 @bot.command()
 @commands.is_owner()
