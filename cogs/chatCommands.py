@@ -22,7 +22,7 @@ class ChatCommands(commands.Cog):
     	else:
         	await ctx.send(f'when girls call {member.mention} smooth, they probably mean their brain')
     @commands.command()
-    async def howlong(self, ctx):
+    async def howlong(self, ctx, message):
         ppsize=random.randint(-3, 11)
         member=message.author
         await ctx.reply(f"{member.mention}'s dingus is {ppsize} inches... *oh my*..")    	
