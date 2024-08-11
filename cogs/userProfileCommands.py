@@ -12,20 +12,16 @@ class userProfileCommands(commands.Cog):
 		
     @commands.command()
     async def avatar(self, ctx, member: discord.Member=None):
-        print('1')
         if member==None:
-            print('2')
-            embedAvatarSelf = discord.Embed(title=f'{ctx.message.author}')
-            print('3')
-            userAvatar=member.avatar_url
+            embedAvatarSelf = discord.Embed(title=f'{ctx.message.author}', color=random.randint(-1, 37))
+            userAvatar=ctx.message.author.avatar.url
             print('4')
             embedAvatarSelf.set_image(userAvatar)
             print('5')
             await ctx.reply(embed=embedAvatarSelf)
         else:
             embedAvatarOther = discord.Embed(title=f'{member}')
-            userAvatar=member.avatar_url
-            print('6')
+            userAvatar=member.avatar.url
             embedAvatarOther.set_image(userAvatar)
             await ctx.reply(embed=embedAvatarOther)
 		
