@@ -10,7 +10,7 @@ class userProfileCommands(commands.Cog):
     async def on_ready(self):
         print(f'{__name__} is online!')
 		
-    @commands.command(aliases='av')
+    @commands.command(aliases=['av'])
     async def avatar(self, ctx, member: discord.Member=None):
         if member==None:
             embedAvatarSelf = discord.Embed(title=ctx.message.author)
