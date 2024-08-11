@@ -13,7 +13,7 @@ class userProfileCommands(commands.Cog):
     @commands.command()
     async def avatar(self, ctx, member: discord.Member=None):
         if member==None:
-            embedAvatarSelf = discord.Embed(title=ctx.message.author}))
+            embedAvatarSelf = discord.Embed(title=ctx.message.author)
             userAvatar=ctx.message.author.avatar.url
             embedAvatarSelf.set_image(url=userAvatar)
             await ctx.reply(embed=embedAvatarSelf)
