@@ -15,9 +15,7 @@ class userProfileCommands(commands.Cog):
         if member==None:
             embedAvatarSelf = discord.Embed(title=f'{ctx.message.author}', color=random.randint(-1, 37))
             userAvatar=ctx.message.author.avatar.url
-            print('4')
-            embedAvatarSelf.set_image(url=f'{userAvatar}')
-            print('5')
+            embedAvatarSelf.set_image(url=userAvatar)
             await ctx.reply(embed=embedAvatarSelf)
         else:
             embedAvatarOther = discord.Embed(title=f'{member}')
