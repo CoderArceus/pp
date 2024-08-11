@@ -21,12 +21,18 @@ with open("token.txt") as file:
 #loading modules and starting bot
 
 extensions = [
-    'cogs.mod_commands',
+    'cogs.chatCommand',
+    'cogs.Functions',
+    'cogs.MessageManipulation',
+    'cogs.ping',
+    'cogs.shutdown',
+    'cogs.userProfileCommands',
+    'cogs.welcome'
 ]
 if __name__ == "__main__":
     for extension in extensions:
         try:
-            await bot.load_extension(extension)
+            bot.load_extension(extension)
         except Exception as e:
             print(f"Error loading the {extension}", file=sys.stderr)
             traceback.print_exc()
@@ -42,5 +48,6 @@ async def reload(ctx):
 
 async def main():
     async with bot:
+        await load()
         await bot.start(token)
 asyncio.run(main())
