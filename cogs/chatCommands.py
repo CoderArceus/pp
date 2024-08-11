@@ -14,6 +14,13 @@ class ChatCommands(commands.Cog):
     @commands.command()
     async def hello(self, ctx):
         await ctx.send('hello!!')
+    @commands.command()
+    async def roast(self, ctx, member: discord.Member=None):
+    	if member==None:
+    	    await ctx.reply("you wanna grill yourself lil bro?")
+    	else:
+        	await ctx.send(f'when girls call {member.mention} smooth, they probably mean their brain')
+    	
 
 async def setup(bot):
    await bot.add_cog(ChatCommands(bot))
