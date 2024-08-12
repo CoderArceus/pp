@@ -13,7 +13,6 @@ class userProfileCommands(commands.Cog):
     @commands.command(aliases=['av'])
     async def avatar(self, ctx, member: discord.Member=None):
         if member==None:
-            rcolor = randomColor()
             embedAvatarSelf = discord.Embed(title=ctx.message.author, color=discord.Color.random())
             userAvatar=ctx.message.author.avatar.url
             embedAvatarSelf.set_image(url=userAvatar)
