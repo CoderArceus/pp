@@ -22,6 +22,19 @@ class userProfileCommands(commands.Cog):
             userAvatar=member.avatar.url
             embedAvatarOther.set_image(url=userAvatar)
             await ctx.reply(embed=embedAvatarOther)
+    
+    @commands.command()
+    async def banner(self, ctx, member: discord.Member=None):
+        if member==None:
+            embedBannerSelf = discord.Embed(title=ctx.message.author, color=discord.Color.random())
+            userBanner=ctx.message.author.banner.url
+            embedBannerSelf.set_image(url=userBanner)
+            await ctx.reply(embed=embedBannerSelf)
+        else:
+            embedBannerOther = discord.Embed(title=member, color=discord.Color.random())
+            userBanner=member.banner.url
+            embedBannerOther.set_image(url=userBanner)
+            await ctx.reply(embed=embedBannerOther)
 		
 async def setup(bot):
    await bot.add_cog(userProfileCommands(bot))
