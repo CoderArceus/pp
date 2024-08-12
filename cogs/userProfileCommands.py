@@ -28,7 +28,7 @@ class userProfileCommands(commands.Cog):
         print("1")
         if member==None:
             print("2")
-            member = await bot.fetch_user(member.id)
+            member = await bot.fetch_user(message.author.id)
             print("3")
             embedBannerSelf = discord.Embed(title=ctx.message.author, color=discord.Color.random())
             print("4")
