@@ -18,7 +18,7 @@ class userProfileCommands(commands.Cog):
             embedAvatarSelf.set_image(url=userAvatar)
             await ctx.reply(embed=embedAvatarSelf)
         else:
-            embedAvatarOther = discord.Embed(title=member)
+            embedAvatarOther = discord.Embed(title=member, color=discord.Color.random())
             userAvatar=member.avatar.url
             embedAvatarOther.set_image(url=userAvatar)
             await ctx.reply(embed=embedAvatarOther)
