@@ -28,12 +28,14 @@ class userProfileCommands(commands.Cog):
         print("1")
         if member==None:
             print("2")
-            embedBannerSelf = discord.Embed(title=ctx.message.author, color=discord.Color.random())
+            user = await bot.fetch_user(ctx.message.author.id)
             print("3")
-            userBanner=ctx.message.author.banner.url
+            embedBannerSelf = discord.Embed(title=ctx.message.author, color=discord.Color.random())
             print("4")
-            embedBannerSelf.set_image(url=userBanner)
+            userBanner=user.banner.url
             print("5")
+            embedBannerSelf.set_image(url=userBanner)
+            print("6")
             await ctx.reply(embed=embedBannerSelf)
         else:
             embedBannerOther = discord.Embed(title=member, color=discord.Color.random())
