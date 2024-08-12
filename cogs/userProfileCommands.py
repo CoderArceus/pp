@@ -24,11 +24,11 @@ class userProfileCommands(commands.Cog):
             await ctx.reply(embed=embedAvatarOther)
     
     @commands.command()
-    async def banner(self, ctx, member: discord.Member=None):
+    async def banner(self, ctx, member: discord.Member=None, id: int):
         print("1")
         if member==None:
             print("2")
-            user = await bot.fetch_user(ctx.message.author.user_id)
+            user = await bot.fetch_user(id)
             print("3")
             embedBannerSelf = discord.Embed(title=ctx.message.author, color=discord.Color.random())
             print("4")
