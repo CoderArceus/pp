@@ -53,5 +53,5 @@ logger.addHandler(handler)
 async def main():
     async with bot:
         await load()
-        await bot.start(token, log_handler=None)
-asyncio.run(main())
+        await bot.start(token)
+asyncio.run(main(log_handler=None))
