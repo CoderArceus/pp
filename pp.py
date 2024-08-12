@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import os
 import asyncio
+import traceback
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -31,6 +32,13 @@ async def reload(ctx):
             await bot.reload_extension(f'cogs.{filename[:-3]}')
             await ctx.send(f'Reloaded {filename} Successfully.')
             print(f'Reloaded {filename} Successfully.')
+
+#LOGGING
+@bot.event
+async def on_error(event, *args, **kwargs):
+    message = args[0] #Gets the message object
+    logging.warning(traceback.format_exc()) #logs the error
+    
 
 async def main():
     async with bot:
