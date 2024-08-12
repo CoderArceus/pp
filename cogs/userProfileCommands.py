@@ -24,7 +24,7 @@ class userProfileCommands(commands.Cog):
             await ctx.reply(embed=embedAvatarOther)
     
     @commands.command()
-    async def banner(self, ctx, member: discord.Member=None, id: int):
+    async def banner(self, ctx,id: int, member: discord.Member=None):
         print("1")
         if member==None:
             print("2")
