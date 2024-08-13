@@ -12,9 +12,12 @@ class MessageManipulation(commands.Cog):
 #message manipulation commands start here -> 
 
     @commands.Cog.listener()
-    async def on_message_edit(self, message):
-        if not message.embeds:
-            await message.reply("can't you type properly once??")
+    async def on_message_edit(self, before, after):
+        if not after.embeds:
+            if before.author.bot:
+                return
+            else:
+                await before.reply("can't you type properly once??")
         
     @commands.Cog.listener()
     async def on_message_delete(self, message):

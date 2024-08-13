@@ -11,41 +11,36 @@ class userProfileCommands(commands.Cog):
         print(f'{__name__} is online!')
 		
     @commands.command(aliases=['av'])
-    async def avatar(self, ctx, member: discord.Member=None):
-        if member==None:
-            embedAvatarSelf = discord.Embed(title=ctx.message.author, color=discord.Color.random())
-            userAvatar=ctx.message.author.avatar.url
-            embedAvatarSelf.set_image(url=userAvatar)
-            await ctx.reply(embed=embedAvatarSelf)
+    async def avatar(self, ctx, *, user: discord.Member=None):
+        if not user:
+            member = ctx.author
         else:
-            embedAvatarOther = discord.Embed(title=member, color=discord.Color.random())
-            userAvatar=member.avatar.url
-            embedAvatarOther.set_image(url=userAvatar)
-            await ctx.reply(embed=embedAvatarOther)
+            member = user
+        
+        userAvatar=member.avatar.url
+        embedAvatar = discord.Embed(title=member, color=discord.Color.random())
+        embedAvatar.set_image(url=userAvatar)
+        
+        await ctx.reply(embed=embedAvatar)
+
     
-    @commands.command()
-    async def banner(self, ctx, member: discord.Member=None):
-        print("1")
-        if member==None:
-            print("2")
-            
-            print("3")
-            embedBannerSelf = discord.Embed(title=ctx.message.author, color=discord.Color.random())
-            print("4")
-            userBanner = ctx.message.author.banner.url
-            print("5")
-            embedBannerSelf.set_image(url=userBanner)
-            print("6")
-            await ctx.reply(embed=embedBannerSelf)
+    @commands.command(name="banner", aliases=['b'])
+    async def banner(self, ctx, *, user: discord.Member=None):
+    
+        if not user:
+            member = ctx.author
         else:
-            print("2")
-            embedBannerOther = discord.Embed(title=member, color=discord.Color.random())
-            print("3")
-            userBanner=member.banner.url
-            print("4")
-            embedBannerOther.set_image(url=userBanner)
-            print("5")
-            await ctx.reply(embed=embedBannerOther)
+            member = user
+            
+        fetchedMember = await self.bot.fetch_user(member.id)
+        
+        if fetchedMember.banner==None:
+            await ctx.reply(f'`{fetchedMember}` got no nitro to have a banner, filthy peasant..')
+        else:
+            userBannerUrl = fetchedMember.banner.url
+            embedBanner = discord.Embed(title=fetchedMember, color = discord.Color.random())
+            embedBanner.set_image(url=userBannerUrl)
+            await ctx.reply(embed=embedBanner)
 		
 async def setup(bot):
    await bot.add_cog(userProfileCommands(bot))
