@@ -26,6 +26,7 @@ async def load():
             await bot.load_extension(f'cogs.{filename[:-3]}')
 
 @bot.command()
+@commands.is_owner()
 async def reload(ctx):
     for filename in os.listdir("./cogs"):
         if filename.endswith(".py"):
