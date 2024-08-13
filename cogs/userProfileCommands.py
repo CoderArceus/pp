@@ -38,11 +38,10 @@ class userProfileCommands(commands.Cog):
             print("6")
             await ctx.reply(embed=embedBannerSelf)
         else:
-            user = await fetch_user(member.user_id)
             print("2")
             embedBannerOther = discord.Embed(title=member, color=discord.Color.random())
             print("3")
-            userBanner=user.banner.url
+            userBanner=member.banner.url
             print("4")
             embedBannerOther.set_image(url=userBanner)
             print("5")
