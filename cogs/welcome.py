@@ -9,6 +9,7 @@ class Welcome(commands.Cog):
     async def on_ready(self):
         print(f'{__name__} is online!')
         
+    @commands.Cog.listener()
     async def on_member_join(self, member):
         channel = await bot.fetch_channel('1136495497645936793')
         await channel.send(f"Whalecum {member.mention}! Hope you enjoy your stay here. Dont forget to take self roles.")

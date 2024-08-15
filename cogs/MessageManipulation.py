@@ -26,6 +26,13 @@ class MessageManipulation(commands.Cog):
         	return
         else:
         	await message.channel.send(f'{member.mention} fuk u hidin bih?')
+            
+    @commands.Cog.listener()
+    async def on_message(self, message):
+        if message.content=="good pp":
+            await message.reply("Thanks :deer:")
+        else:
+            return
         
 async def setup(bot):
    await bot.add_cog(MessageManipulation(bot))
